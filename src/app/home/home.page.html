@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+  <ion-row class="ion-align-items-center header-line">
+    <ion-col size="2" class="menu-icon">
+      <ion-icon name="reorder-three" size="large"></ion-icon>
+    </ion-col>
+    <ion-col size="8" class="cantina">
+      CANTINA UNIFCV </ion-col>
+
+    <ion-col size="2" class="ion-text-end account-icon">
+      <ion-icon name="happy-outline" size="large"></ion-icon>
+    </ion-col>
+  </ion-row>
+</ion-toolbar>
+
+  <ion-row class="ion-align-items-center header-subline">
+    <ion-slides pager="false" class="slide-line" [options]="slideOpts">
+      <ion-slide *ngFor="let categoria of categorias; let ix = index" [ngClass]="categoria.codigo == selected ? 'slide-actived' : 'slide-no-actived'" (click)="setSelected(categoria.codigo)">
+        {{ categoria.nome }}
+      </ion-slide>
+    </ion-slides>
+  </ion-row>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-row>
+    <ion-col size="6" *ngFor="let item of items; let ix = index" [hidden]="!item.visibled" (click)="goItem(item)">
+      <ion-row>
+        <ion-col size="12" class="card-item">
+          
+          <ion-row>
+            <ion-col size="12" class="img-item">
+              <img [src]="pathImgs + item.imagens[0]"/>
+            </ion-col>
+          </ion-row>
+
+          <ion-row style="height: 45px;">
+            <ion-col size="12" class="titulo-item">
+              {{ item.nome}}
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="12" class="valor-produto">
+              {{ formataValor(item.valor) }}
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="12" class="col-botao-detalhes">
+              <span class="botao-detalhes"> SAIBA MAIS </span>
+            </ion-col>
+          </ion-row>
+
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed" class="btn-order">
+    <ion-fab-button>
+      <ion-icon name="cart-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+
+<ion-footer>
+</ion-footer>

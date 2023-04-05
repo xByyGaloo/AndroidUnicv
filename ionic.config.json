@@ -1,0 +1,7 @@
+{
+  "name": "unicvlanches",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

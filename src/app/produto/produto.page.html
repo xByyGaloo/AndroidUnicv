@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{item.nome}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-row>
+  <ion-col size="12" class="img-item">
+    <img [src]="pathImgs + item.imagens[0]" />
+  </ion-col>
+</ion-row>
+
+
+<ion-row>
+  <ion-col size="12" class="descricao">
+    {{item.descricao}}
+  </ion-col>
+</ion-row>
+
+<ion-footer class="footer">
+  <ion-row class="ion-align-items-center">
+    <ion-col size="6" class="valor">
+      {{ formataValor(item.valor) }}
+    </ion-col>
+    <ion-col size="6">
+      <ion-row class="ion-align-items-center">
+        <ion-col size="4" class="ion-text-center">
+          <ion-button (click)="add()">
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="4" class="ion-text-center">
+          <ion-input class="qntd-style" [(ngModel)]="quantidade"></ion-input>
+        </ion-col>
+        <ion-col size="4" class="ion-text-center">
+          <ion-button (click)="remove()">
+            <ion-icon name="remove"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-footer>
